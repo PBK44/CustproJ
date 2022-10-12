@@ -1,0 +1,32 @@
+{% load static %}
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'css/demo5.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  </head>
+  <body>
+    <h2>CUSTOMER-INFORMATION</h2>
+    {% if cust_list %}
+    <table border="1" height="300" width="600">
+        <tr>
+          <th>CID</th>
+          <th>CNAME</th>
+          <th>ACCNUMBER</th>
+          <th>BANK</th>
+          <th>BRANCH</th>
+        </tr>
+        {% for cust in cust_list %}
+        <tr>
+          <td>{{cust.cid}}</td>
+          <td>{{cust.cname}}</td>
+          <td>{{cust.Accno}}</td>
+          <td>{{cust.bank}}</td>
+          <td>{{cust.branch}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+        {% else %}
+        <p>No customer record found</p>
+    {% endif %}
+  </body>
+</html>
